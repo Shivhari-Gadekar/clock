@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Hero Clock</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .hero-circle {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border: 10px solid #333;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-face {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-hour, .hero-minute, .hero-second {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform-origin: bottom;
+            background: #333;
+            border-radius: 4px;
+        }
+
+        .hero-hour {
+            width: 6px;
+            height: 50px;
+            background: #000;
+        }
+
+        .hero-minute {
+            width: 4px;
+            height: 70px;
+            background: #666;
+        }
+
+        .hero-second {
+            width: 2px;
+            height: 90px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-circle">
+        <div class="hero-face">
+            <div id="hour" class="hero-hour"></div>
+            <div id="minute" class="hero-minute"></div>
+            <div id="second" class="hero-second"></div>
+        </div>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const seconds = now.getSeconds();
+            const minutes = now.getMinutes();
+            const hours = now.getHours();
+
+            // Calculate the rotation degrees for each hand
+            const secondDeg = (seconds / 60) * 360;
+            const minuteDeg = (minutes / 60 + seconds / 3600) * 360;
+            const hourDeg = (hours % 12 / 12 + minutes / 720) * 360;
+
+            // Update the hands' rotation
+            document.getElementById('second').style.transform = `rotate(${secondDeg}deg)`;
+            document.getElementById('minute').style.transform = `rotate(${minuteDeg}deg)`;
+            document.getElementById('hour').style.transform = `rotate(${hourDeg}deg)`;
+        }
+
+        // Update the clock every second
+        setInterval(updateClock, 1000);
+        
+        // Initialize the clock
+        updateClock();
+    </script>
+</body>
+</html>

@@ -32,7 +32,6 @@
             transform-origin: bottom;
             background: #333;
             border-radius: 10px;
-            transition: transform 0.5s ease;
         }
 
         .hour {
@@ -51,6 +50,7 @@
             width: 4px;
             height: 90px;
             background: red;
+            transition: none; /* No transition to make it smooth */
         }
 
         .center-dot {
@@ -63,6 +63,25 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
+
+        .marker {
+            position: absolute;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .marker-12 {
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .marker-6 {
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     </style>
 </head>
 <body>
@@ -71,6 +90,8 @@
         <div class="hand minute" id="minute"></div>
         <div class="hand second" id="second"></div>
         <div class="center-dot"></div>
+        <div class="marker marker-12">12</div>
+        <div class="marker marker-6">6</div>
     </div>
 
     <script>

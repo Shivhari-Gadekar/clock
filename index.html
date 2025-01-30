@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clock</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Yogesh Clock</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -29,7 +28,7 @@
         height: auto;
       }
       .time-display {
-        font-size: 2em;
+        font-size: 3rem;
         font-weight: bold;
         margin-top: 20px;
       }
@@ -46,6 +45,7 @@
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
       >
+        <title>Analog clock showing the time</title>
         <g>
           <circle
             class="anlg_clock_border"
@@ -55,83 +55,43 @@
             r="163.73018"
             transform="rotate(-30)"
           ></circle>
-          <path
-            class="anlg_clock_tick"
-            style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1"
-            d="m 294.30765,97.814913 -12.90584,7.451207"
-          ></path>
-          <!-- Additional tick marks for the clock -->
-          <text
-            class="anlg_clock_number"
-            style="font-weight:bold;font-size:60px;line-height:1.25;font-family:Helvetica;fill:#444;fill-opacity:1;"
-            x="153.25618"
-            y="46.332806"
-          >
+
+          <!-- Tick Marks for each hour -->
+          <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 241.58751,45.274653 -7.45118,12.905856"></path>
+          <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 294.30765,97.814913 -12.90584,7.451207"></path>
+          <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 58.369682,234.7298 -12.905848,7.45119"></path>
+          <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 105.7167,281.81542 -7.451195,12.90584"></path>
+          <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 97.743462,45.576052 7.451218,12.90582"></path>
+          <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 234.65835,281.514 7.45119,12.90585"></path>
+          <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 45.203217,98.336959 12.905852,7.451161"></path>
+          <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 281.74397,234.20776 12.90585,7.45119"></path>
+
+          <!-- Numbers on clock face -->
+          <text class="anlg_clock_number" style="font-weight:bold;font-size:60px;line-height:1.25;font-family:Helvetica;fill:#444;fill-opacity:1;" x="153.25618" y="46.332806">
             <tspan x="138" y="70">12</tspan>
           </text>
-          <text
-            class="anlg_clock_number"
-            style="font-weight:bold;font-size:60px;line-height:1.25;font-family:Helvetica;fill:#444;fill-opacity:1;"
-            x="298.83868"
-            y="179.47572"
-          >
+          <text class="anlg_clock_number" style="font-weight:bold;font-size:60px;line-height:1.25;font-family:Helvetica;fill:#444;fill-opacity:1;" x="298.83868" y="179.47572">
             <tspan x="280" y="192">3</tspan>
           </text>
-          <text
-            class="anlg_clock_number"
-            style="font-weight:bold;font-size:60px;line-height:1.25;font-family:Helvetica;fill:#444;fill-opacity:1;"
-            x="161.76811"
-            y="314.7442"
-          >
+          <text class="anlg_clock_number" style="font-weight:bold;font-size:60px;line-height:1.25;font-family:Helvetica;fill:#444;fill-opacity:1;" x="161.76811" y="314.7442">
             <tspan x="155" y="314.7442">6</tspan>
           </text>
-          <text
-            class="anlg_clock_number"
-            style="font-weight:bold;font-size:60px;line-height:1.25;font-family:Helvetica;fill:#444;fill-opacity:1;"
-            x="25.365322"
-            y="179.46866"
-          >
+          <text class="anlg_clock_number" style="font-weight:bold;font-size:60px;line-height:1.25;font-family:Helvetica;fill:#444;fill-opacity:1;" x="25.365322" y="179.46866">
             <tspan x="25.365322" y="190">9</tspan>
           </text>
+
+          <!-- Clock Hands -->
           <g class="anlg_clock_hands" transform="rotate(180) translate(-171,-171)">
             <g>
-              <line
-                class="anlg_clock_hour_hand"
-                style="stroke:#444;stroke-width:14;stroke-linecap:round;stroke-opacity:1"
-                x1="0"
-                x2="0"
-                y1="0"
-                y2="75"
-                id="hour-hand"
-              ></line>
+              <line class="anlg_clock_hour_hand" style="stroke:#444;stroke-width:14;stroke-linecap:round;stroke-opacity:1" x1="0" x2="0" y1="0" y2="75" id="hour-hand"></line>
             </g>
             <g>
-              <line
-                class="anlg_clock_minute_hand"
-                style="stroke:#444;stroke-width:8;stroke-linecap:round;stroke-opacity:1"
-                x1="0"
-                x2="0"
-                y1="0"
-                y2="110"
-                id="minute-hand"
-              ></line>
+              <line class="anlg_clock_minute_hand" style="stroke:#444;stroke-width:8;stroke-linecap:round;stroke-opacity:1" x1="0" x2="0" y1="0" y2="110" id="minute-hand"></line>
             </g>
             <g>
-              <line
-                class="anlg_clock_second_hand"
-                style="stroke:#CF3729;stroke-width:5;stroke-linecap:round;stroke-opacity:1"
-                x1="0"
-                x2="0"
-                y1="0"
-                y2="145"
-                id="second-hand"
-              ></line>
+              <line class="anlg_clock_second_hand" style="stroke:#CF3729;stroke-width:5;stroke-linecap:round;stroke-opacity:1" x1="0" x2="0" y1="0" y2="145" id="second-hand"></line>
             </g>
-            <circle
-              class="anlg_clock_hand_center"
-              style="fill:#fff;stroke:#CF3729;stroke-width:5;stroke-linecap:round;stroke-opacity:1"
-              r="12"
-            ></circle>
+            <circle class="anlg_clock_hand_center" style="fill:#fff;stroke:#CF3729;stroke-width:5;stroke-linecap:round;stroke-opacity:1" r="12"></circle>
           </g>
         </g>
       </svg>

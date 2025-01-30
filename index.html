@@ -1,117 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creative Clock</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+    <link rel="stylesheet" href="styles.css" />
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #6e7f80, #c9d6d5);
-            font-family: 'Arial', sans-serif;
-        }
-
-        .clock {
-            position: relative;
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            background: white;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            overflow: hidden;
-        }
-
-        .hand {
-            position: absolute;
-            bottom: 50%;
-            left: 50%;
-            transform-origin: bottom;
-            background: #333;
-            border-radius: 10px;
-        }
-
-        .hour {
-            width: 8px;
-            height: 60px;
-            background: #000;
-        }
-
-        .minute {
-            width: 6px;
-            height: 80px;
-            background: #666;
-        }
-
-        .second {
-            width: 4px;
-            height: 90px;
-            background: red;
-            transition: none; /* No transition to make it smooth */
-        }
-
-        .center-dot {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background: #333;
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .marker {
-            position: absolute;
-            font-size: 20px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .marker-12 {
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .marker-6 {
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(135deg, #6e7f80, #c9d6d5);
+      }
+      .container {
+        width: 100%;
+        max-width: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      svg {
+        width: 100%;
+        height: auto;
+      }
+      .time-display {
+        font-size: 2em;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+      .anlg_clock_number {
+        font-size: 20px;
+      }
     </style>
-</head>
-<body>
-    <div class="clock">
-        <div class="hand hour" id="hour"></div>
-        <div class="hand minute" id="minute"></div>
-        <div class="hand second" id="second"></div>
-        <div class="center-dot"></div>
-        <div class="marker marker-12">12</div>
-        <div class="marker marker-6">6</div>
+  </head>
+  <body>
+    <div class="container">
+      <svg
+        class="anlg_clock"
+        viewBox="-10 -10 363 363"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g>
+          <circle
+            class="anlg_clock_border"
+            style="fill:#fff;stroke:#444;stroke-width:18;stroke-opacity:1"
+            cx="62.259407"
+            cy="231.62442"
+            r="163.73018"
+            transform="rotate(-30)"
+          ></circle>
+          <path
+            class="anlg_clock_tick"
+            style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1"
+            d="m 294.30765,97.814913 -12.90584,7.451207"
+          ></path>
+          <!-- Additional tick marks for the clock -->
+          <text
+            class="anlg_clock_number"
+            style="font-weight:bold;font-size:60px;line-height:1.25;font-family:Helvetica;fill:#444;fill-opacity:1;"
+            x="153.25618"
+            y="46.332806"
+          >
+            <tspan x="138" y="70">12</tspan>
+          </text>
+          <text
+            class="anlg_clock_number"
+            style="font-weight:bold;font-size:60px;line-height:1.25;font-family:Helvetica;fill:#444;fill-opacity:1;"
+            x="298.83868"
+            y="179.47572"
+          >
+            <tspan x="280" y="192">3</tspan>
+          </text>
+          <text
+            class="anlg_clock_number"
+            style="font-weight:bold;font-size:60px;line-height:1.25;font-family:Helvetica;fill:#444;fill-opacity:1;"
+            x="161.76811"
+            y="314.7442"
+          >
+            <tspan x="155" y="314.7442">6</tspan>
+          </text>
+          <text
+            class="anlg_clock_number"
+            style="font-weight:bold;font-size:60px;line-height:1.25;font-family:Helvetica;fill:#444;fill-opacity:1;"
+            x="25.365322"
+            y="179.46866"
+          >
+            <tspan x="25.365322" y="190">9</tspan>
+          </text>
+          <g class="anlg_clock_hands" transform="rotate(180) translate(-171,-171)">
+            <g>
+              <line
+                class="anlg_clock_hour_hand"
+                style="stroke:#444;stroke-width:14;stroke-linecap:round;stroke-opacity:1"
+                x1="0"
+                x2="0"
+                y1="0"
+                y2="75"
+                id="hour-hand"
+              ></line>
+            </g>
+            <g>
+              <line
+                class="anlg_clock_minute_hand"
+                style="stroke:#444;stroke-width:8;stroke-linecap:round;stroke-opacity:1"
+                x1="0"
+                x2="0"
+                y1="0"
+                y2="110"
+                id="minute-hand"
+              ></line>
+            </g>
+            <g>
+              <line
+                class="anlg_clock_second_hand"
+                style="stroke:#CF3729;stroke-width:5;stroke-linecap:round;stroke-opacity:1"
+                x1="0"
+                x2="0"
+                y1="0"
+                y2="145"
+                id="second-hand"
+              ></line>
+            </g>
+            <circle
+              class="anlg_clock_hand_center"
+              style="fill:#fff;stroke:#CF3729;stroke-width:5;stroke-linecap:round;stroke-opacity:1"
+              r="12"
+            ></circle>
+          </g>
+        </g>
+      </svg>
+
+      <!-- Display Current Time -->
+      <div class="time-display" id="current-time"></div>
     </div>
 
     <script>
-        function updateClock() {
-            const now = new Date();
-            const seconds = now.getSeconds();
-            const minutes = now.getMinutes();
-            const hours = now.getHours();
+      function updateClock() {
+        const now = new Date();
+        const seconds = now.getSeconds();
+        const minutes = now.getMinutes();
+        const hours = now.getHours();
 
-            const secondDeg = (seconds / 60) * 360;
-            const minuteDeg = (minutes / 60 + seconds / 3600) * 360;
-            const hourDeg = (hours % 12 / 12 + minutes / 720) * 360;
+        // Update the digital time display
+        const formattedTime = `${String(hours).padStart(2, '0')}:${String(
+          minutes
+        ).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        document.getElementById('current-time').innerText = formattedTime;
 
-            document.getElementById('second').style.transform = `rotate(${secondDeg}deg)`;
-            document.getElementById('minute').style.transform = `rotate(${minuteDeg}deg)`;
-            document.getElementById('hour').style.transform = `rotate(${hourDeg}deg)`;
-        }
+        // Calculate rotations for the clock hands
+        const secondDeg = (seconds / 60) * 360;
+        const minuteDeg = (minutes / 60 + seconds / 3600) * 360;
+        const hourDeg = (hours % 12 / 12 + minutes / 720) * 360;
 
-        setInterval(updateClock, 1000);
-        updateClock();
+        // Rotate the hands based on the calculated degrees
+        document.getElementById('second-hand').style.transform = `rotate(${secondDeg}deg)`;
+        document.getElementById('minute-hand').style.transform = `rotate(${minuteDeg}deg)`;
+        document.getElementById('hour-hand').style.transform = `rotate(${hourDeg}deg)`;
+      }
+
+      // Update clock every second
+      setInterval(updateClock, 1000);
+
+      // Initial update
+      updateClock();
     </script>
-</body>
+  </body>
 </html>

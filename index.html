@@ -1,134 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yogesh Clock</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        background: linear-gradient(135deg, #6e7f80, #c9d6d5);
-      }
-      .container {
-        width: 100%;
-        max-width: 500px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-      }
-      svg {
-        width: 100%;
-        height: auto;
-      }
-      .time-display {
-        font-size: 3rem;
-        font-weight: bold;
-        margin-top: 20px;
-      }
-      .anlg_clock_number {
-        font-size: 20px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <svg
-        class="anlg_clock"
-        viewBox="-10 -10 363 363"
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <title>Analog clock showing the time</title>
-        <g>
-          <circle
-            class="anlg_clock_border"
-            style="fill:#fff;stroke:#444;stroke-width:18;stroke-opacity:1"
-            cx="62.259407"
-            cy="231.62442"
-            r="163.73018"
-            transform="rotate(-30)"
-          ></circle>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yogesh Clock and AIAPGET Countdown</title>
 
-          <!-- Tick Marks for each hour -->
-          <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 241.58751,45.274653 -7.45118,12.905856"></path>
-          <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 294.30765,97.814913 -12.90584,7.451207"></path>
-          <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 58.369682,234.7298 -12.905848,7.45119"></path>
-          <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 105.7167,281.81542 -7.451195,12.90584"></path>
-          <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 97.743462,45.576052 7.451218,12.90582"></path>
-          <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 234.65835,281.514 7.45119,12.90585"></path>
-          <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 45.203217,98.336959 12.905852,7.451161"></path>
-          <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 281.74397,234.20776 12.90585,7.45119"></path>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-          <!-- Numbers on clock face -->
-          <text class="anlg_clock_number" style="font-weight:bold;font-size:60px;line-height:1.25;font-family:Helvetica;fill:#444;fill-opacity:1;" x="153.25618" y="46.332806">
-            <tspan x="138" y="70">12</tspan>
-          </text>
-          <text class="anlg_clock_number" style="font-weight:bold;font-size:60px;line-height:1.25;font-family:Helvetica;fill:#444;fill-opacity:1;" x="298.83868" y="179.47572">
-            <tspan x="280" y="192">3</tspan>
-          </text>
-          <text class="anlg_clock_number" style="font-weight:bold;font-size:60px;line-height:1.25;font-family:Helvetica;fill:#444;fill-opacity:1;" x="161.76811" y="314.7442">
-            <tspan x="155" y="314.7442">6</tspan>
-          </text>
-          <text class="anlg_clock_number" style="font-weight:bold;font-size:60px;line-height:1.25;font-family:Helvetica;fill:#444;fill-opacity:1;" x="25.365322" y="179.46866">
-            <tspan x="25.365322" y="190">9</tspan>
-          </text>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #6e7f80, #c9d6d5);
+      color: yellow;
+    }
+    .container {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+    svg {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+    }
+    .countdown-container {
+      text-align: center;
+      background: linear-gradient(to right, #000080, #000033);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 40px;
+      width: 100%;
+      max-width: 500px;
+    }
+    .countdown {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .countdown span {
+      font-size: 3rem;
+      color: red;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
 
-          <!-- Clock Hands -->
-          <g class="anlg_clock_hands" transform="rotate(180) translate(-171,-171)">
-            <g>
-              <line class="anlg_clock_hour_hand" style="stroke:#444;stroke-width:14;stroke-linecap:round;stroke-opacity:1" x1="0" x2="0" y1="0" y2="75" id="hour-hand"></line>
-            </g>
-            <g>
-              <line class="anlg_clock_minute_hand" style="stroke:#444;stroke-width:8;stroke-linecap:round;stroke-opacity:1" x1="0" x2="0" y1="0" y2="110" id="minute-hand"></line>
-            </g>
-            <g>
-              <line class="anlg_clock_second_hand" style="stroke:#CF3729;stroke-width:5;stroke-linecap:round;stroke-opacity:1" x1="0" x2="0" y1="0" y2="145" id="second-hand"></line>
-            </g>
-            <circle class="anlg_clock_hand_center" style="fill:#fff;stroke:#CF3729;stroke-width:5;stroke-linecap:round;stroke-opacity:1" r="12"></circle>
+  <div class="container">
+    <!-- Analog Clock -->
+    <svg
+      class="anlg_clock"
+      viewBox="-10 -10 363 363"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <title>Do Study Mama</title>
+      <g>
+        <circle
+          class="anlg_clock_border"
+          style="fill:#fff;stroke:#444;stroke-width:18;stroke-opacity:1"
+          cx="62.259407"
+          cy="231.62442"
+          r="163.73018"
+          transform="rotate(-30)"
+        ></circle>
+
+        <!-- Tick Marks for each hour -->
+        <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 241.58751,45.274653 -7.45118,12.905856"></path>
+        <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 294.30765,97.814913 -12.90584,7.451207"></path>
+        <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 58.369682,234.7298 -12.905848,7.45119"></path>
+        <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 105.7167,281.81542 -7.451195,12.90584"></path>
+        <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 97.743462,45.576052 7.451218,12.90582"></path>
+        <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 234.65835,281.514 7.45119,12.90585"></path>
+        <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 45.203217,98.336959 12.905852,7.451161"></path>
+        <path class="anlg_clock_tick" style="stroke:#444;stroke-width:5;stroke-linecap:round;stroke-opacity:1" d="m 281.74397,234.20776 12.90585,7.45119"></path>
+
+        <!-- Numbers on clock face -->
+        <text class="anlg_clock_number" style="font-weight:bold;font-size:60px;line-height:1.25;font-family:Helvetica;fill:#444;fill-opacity:1;" x="153.25618" y="46.332806">
+          <tspan x="138" y="70">12</tspan>
+        </text>
+        <text class="anlg_clock_number" style="font-weight:bold;font-size:60px;line-height:1.25;font-family:Helvetica;fill:#444;fill-opacity:1;" x="298.83868" y="179.47572">
+          <tspan x="280" y="192">3</tspan>
+        </text>
+        <text class="anlg_clock_number" style="font-weight:bold;font-size:60px;line-height:1.25;font-family:Helvetica;fill:#444;fill-opacity:1;" x="161.76811" y="314.7442">
+          <tspan x="155" y="314.7442">6</tspan>
+        </text>
+        <text class="anlg_clock_number" style="font-weight:bold;font-size:60px;line-height:1.25;font-family:Helvetica;fill:#444;fill-opacity:1;" x="25.365322" y="179.46866">
+          <tspan x="25.365322" y="190">9</tspan>
+        </text>
+
+        <!-- Clock Hands -->
+        <g class="anlg_clock_hands" transform="rotate(180) translate(-171,-171)">
+          <g>
+            <line class="anlg_clock_hour_hand" style="stroke:#444;stroke-width:14;stroke-linecap:round;stroke-opacity:1" x1="0" x2="0" y1="0" y2="75" id="hour-hand"></line>
           </g>
+          <g>
+            <line class="anlg_clock_minute_hand" style="stroke:#444;stroke-width:8;stroke-linecap:round;stroke-opacity:1" x1="0" x2="0" y1="0" y2="110" id="minute-hand"></line>
+          </g>
+          <g>
+            <line class="anlg_clock_second_hand" style="stroke:#CF3729;stroke-width:5;stroke-linecap:round;stroke-opacity:1" x1="0" x2="0" y1="0" y2="145" id="second-hand"></line>
+          </g>
+          <circle class="anlg_clock_hand_center" style="fill:#fff;stroke:#CF3729;stroke-width:5;stroke-linecap:round;stroke-opacity:1" r="12"></circle>
         </g>
-      </svg>
+      </g>
+    </svg>
+  </div>
 
-      <!-- Display Current Time -->
-      <div class="time-display" id="current-time"></div>
+  <!-- Countdown Section -->
+  <div class="countdown-container">
+    <h1 class="fw-bold" style="color:#ff0cff">AIAPGET Countdown</h1>
+    <div class="countdown">
+      <span id="days"></span> Days<br> 
+      <span id="hours"></span>:<span id="minutes"></span>:<span id="seconds"></span>
     </div>
+  </div>
 
-    <script>
-      function updateClock() {
-        const now = new Date();
-        const seconds = now.getSeconds();
-        const minutes = now.getMinutes();
-        const hours = now.getHours();
+  <!-- Bootstrap and JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Update Analog Clock and Digital Time
+    function updateClock() {
+      const now = new Date();
+      const seconds = now.getSeconds();
+      const minutes = now.getMinutes();
+      const hours = now.getHours();
 
-        // Update the digital time display
-        const formattedTime = `${String(hours).padStart(2, '0')}:${String(
-          minutes
-        ).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-        document.getElementById('current-time').innerText = formattedTime;
+      // Calculate rotations for the clock hands
+      const secondDeg = (seconds / 60) * 360;
+      const minuteDeg = (minutes / 60 + seconds / 3600) * 360;
+      const hourDeg = (hours % 12 / 12 + minutes / 720) * 360;
 
-        // Calculate rotations for the clock hands
-        const secondDeg = (seconds / 60) * 360;
-        const minuteDeg = (minutes / 60 + seconds / 3600) * 360;
-        const hourDeg = (hours % 12 / 12 + minutes / 720) * 360;
+      // Rotate the hands based on the calculated degrees
+      document.getElementById('second-hand').style.transform = `rotate(${secondDeg}deg)`;
+      document.getElementById('minute-hand').style.transform = `rotate(${minuteDeg}deg)`;
+      document.getElementById('hour-hand').style.transform = `rotate(${hourDeg}deg)`;
+    }
 
-        // Rotate the hands based on the calculated degrees
-        document.getElementById('second-hand').style.transform = `rotate(${secondDeg}deg)`;
-        document.getElementById('minute-hand').style.transform = `rotate(${minuteDeg}deg)`;
-        document.getElementById('hour-hand').style.transform = `rotate(${hourDeg}deg)`;
+    // Update clock every second
+    setInterval(updateClock, 1000);
+
+    // Initial update
+    updateClock();
+
+    // Countdown for Exam Date
+    const examDate = new Date("April 1, 2025 00:00:00").getTime();
+
+    const countdown = setInterval(function() {
+      const now = new Date().getTime();
+      const timeRemaining = examDate - now;
+
+      // Calculate days, hours, minutes, and seconds
+      const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+      // Display the results in the HTML
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+
+      // If the countdown is finished, display a message
+      if (timeRemaining < 0) {
+        clearInterval(countdown);
+        document.querySelector(".countdown").innerHTML = "EXAM TIME! Good luck!";
       }
-
-      // Update clock every second
-      setInterval(updateClock, 1000);
-
-      // Initial update
-      updateClock();
-    </script>
-  </body>
+    }, 1000);
+  </script>
+  
+</body>
 </html>
